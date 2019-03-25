@@ -31,7 +31,7 @@ char *cmd_read(void){
       			bufsize += BUFSIZE;
       			buffer = realloc(buffer, bufsize);
       			if (!buffer) {
-        			fprintf(stderr, "lsh: allocation error\n");
+        			fprintf(stderr, "HellShell: allocation error\n");
         			exit(EXIT_FAILURE);
       			}
     		}
@@ -86,11 +86,11 @@ int cmd_go(char **args){
   	pid = fork();
   	if (pid == 0) {	// Child process
     		if (execvp(args[0], args) == -1) 
-      			perror("HEllSHell>>");
+      			perror("HellShell Error>");
     		exit(EXIT_FAILURE);
   	} 
 	else if (pid < 0) // Error forking
-    		perror("lsh");
+    		perror("HellShell:");
 	else { // Parent process
     		do {
       			wpid = waitpid(pid, &status, WUNTRACED);
@@ -105,7 +105,7 @@ void cmd_loop(void){
   	char **args;
   	int status;
   	do{
-    		printf("> ");
+    		printf("HellShell> ");
     		line = cmd_read();
     		args = cmd_args(line);
     		status = cmd_execute(args);
