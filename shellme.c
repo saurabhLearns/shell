@@ -9,6 +9,7 @@
 int i =0, j=0;
 char hist[50][50];
 char history[10]="hist";
+char quit[5]="quit";
 char *cmd_read(void){
 	int bufsize = BUFSIZE;
   int position = 0;
@@ -110,7 +111,7 @@ void cmd_hist_print(){
 for(j = 0; j < i; j++){
 		printf("%d: %s\n", j, hist[j]);
 	}
-	printf("\n\n");
+	printf("\n");
 }
 
 void cmd_loop(void){
@@ -126,13 +127,14 @@ void cmd_loop(void){
 				cmd_hist_print();
 				continue;
 			}
+			if(strcmp(line, quit)==0)
+				break;
    		args = cmd_args(line);
    		status = cmd_execute(args);
    		free(line);
    		free(args);
 	}while (status);
 }
-
 
 int main(int argc, char **argv){
 	cmd_loop();
