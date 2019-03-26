@@ -1,3 +1,4 @@
+//sig trapping, command aliases, file name completion, cmd line ediing, array, job control, arithmetic operations performing abiliy,
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/wait.h>
