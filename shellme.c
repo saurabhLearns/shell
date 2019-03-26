@@ -8,6 +8,7 @@
 #define TOK_DELIM " "
 int i =0, j=0;
 char hist[50][50];
+char history[10]="hist";
 char *cmd_read(void){
 	int bufsize = BUFSIZE;
   int position = 0;
@@ -116,11 +117,15 @@ void cmd_loop(void){
   char *line;
   char **args;
   int status;
+	
   do{
 		printf("HellShell> ");
    		line = cmd_read();
 			cmd_hist(line);
-			cmd_hist_print();
+			if(strcmp(line, history)==0){
+				cmd_hist_print();
+				continue;
+			}
    		args = cmd_args(line);
    		status = cmd_execute(args);
    		free(line);
