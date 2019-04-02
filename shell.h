@@ -1,4 +1,3 @@
-
 char *cmd_read(void){
   int bufsize = BUFSIZE;
   int position = 0;
@@ -57,7 +56,6 @@ char **cmd_args(char *line){
   return tokens;
 }
 
-
 int cmd_exit(char **args){
 	return 0;
 }
@@ -101,6 +99,10 @@ void cmd_loop(void){
 			cmd_hist(line);
 			if(strcmp(line, history)==0){
 				cmd_hist_print();
+				continue;
+			}
+			if(strcmp(line, serv)==0){
+				cmd_rem();
 				continue;
 			}
 			if(strcmp(line, quit)==0)
