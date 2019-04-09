@@ -23,7 +23,7 @@ char *cmd_read(void){
     	bufsize += BUFSIZE;
     	buffer = realloc(buffer, bufsize);
     	if (!buffer) {
-    		fprintf(stderr, "HellShell: allocation error\n");
+    		fprintf(stderr, "SaurabhJagtap: allocation error\n");
     		exit(EXIT_FAILURE);
     	}
     }
@@ -67,11 +67,11 @@ int cmd_go(char **args){
   if (pid == 0) {	
 		// Child process
    		if (execvp(args[0], args) == -1) 
-  			perror("HellShell Error>");
+  			perror("SaurabhJagtap Error>");
     	exit(EXIT_FAILURE);
   	} 
 	else if (pid < 0) // Error forking
-		perror("HellShell:");
+		perror("SaurabhJagtap:");
 	else { 
 		// Parent process
    		do {
@@ -94,7 +94,7 @@ void cmd_loop(void){
   char **args;
   int status;
   do{
-		printf("HellShell> ");
+		printf("SaurabhJagtap> ");
    		line = cmd_read();
 			cmd_hist(line);
 			if(strcmp(line, history)==0){

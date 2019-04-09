@@ -15,7 +15,7 @@ char hist[50][50];
 char history[10]="hist";
 char quit[5]="quit";
 char serv[6]="remsoc";
-//keep all externals below this else it aint workin
+//keep all headers below this else it aint workin
 #include "history.h"
 #include "client.h"
 #include "shell.h"
